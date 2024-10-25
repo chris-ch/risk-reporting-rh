@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "risk-reporting-rh"
+version = "0.1.0"
+description = ""
+authors = ["Christophe <christophe.alexandre@lemvi.ch>"]
+license = "MIT"
+readme = "README.md"
+
+packages = [
+#    {include = "**/*.py", from="src"},
+    {include = "**/*.py", from="scripts"},
+]
+
+# Declare your resource folders
+include = [
+    { path = "resources/**/*", format = "sdist" },
+    { path = "resources/**/*", format = "wheel" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+requests = "^2.32.3"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+list-clients = "scripts.list_clients:run"
+
